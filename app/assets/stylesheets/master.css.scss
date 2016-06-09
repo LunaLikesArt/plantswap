@@ -1,0 +1,104 @@
+.clear {
+    clear: both;
+}
+
+.navbar-brand {
+color: #545759;
+font-family: 'Grand Hotel', cursive;
+font-size: 37px;
+font-weight: 200;
+}
+
+.navbar a.navbar-brand {
+  color: #545759;
+  font-family: 'Grand Hotel', cursive;
+  font-size: 37px;
+  font-weight: 200;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+  text-decoration: none;
+  background-color: white;
+}
+
+.navbar {
+  border-radius:0;
+  box-shadow: 0px 1px 3px #2a2a2a;
+
+  font-family: "Helvetica Neue", Helvetica;
+  font-family: 'Muli', sans-serif;
+  font-weight: 200;
+}
+
+.navbar a {
+  color: #545759;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: white;
+}
+
+.navbar-toggle .icon-bar {
+  background-color: #545759;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar {
+  margin:0;
+}
+
+.frosty {
+  margin-top: 280px;
+
+  color:white;
+  background:rgba(0,0,0, 0.5);
+}
+
+.frosty h1 {
+  text-shadow: rgba(0,0,0,0.95) 1px 1px;
+
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 100;
+}
+
+.frosty h2 {
+  text-shadow: rgba(0,0,0,0.95) 1px 1px;
+
+  font-family: "Helvetica Neue", Helvetica;
+  font-weight: 200;
+}
+
+.btn-danger {
+  color: #fff;
+  border-color: transparent;
+  background-color: #FF7055;
+}
+.btn-danger:hover {
+  color: #fff;
+  border-color: transparent;
+  background-color: #ec6e67;
+}
+
+.btn-success {
+    color: #fff;
+    border-color: #2BE5BA;
+    background-color: #2BE5BA;
+}
+
+.btn-success:hover {
+  color: #fff;
+  border-color: transparent;
+  background-color: #49E5C1;
+}
+
+.btn-success:focus, .btn-success.focus {
+  color: #fff;
+  border-color: transparent;
+  background-color: #49E5C1;
+}
+
+.btn-success:active:hover, .btn-success:active:focus, .btn-success:active.focus, .btn-success.active:hover, .btn-success.active:focus, .btn-success.active.focus, .open > .btn-success.dropdown-toggle:hover, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle.focus {
+  color: #fff;
+  border-color: transparent;
+  background-color: #2BE5BA;
+}
