@@ -1,27 +1,36 @@
-<div class="plantbox">
+</br>
+</br>
+
+<div class="text-center">
   <h1>All plants</h1>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+</br>
 
-  <tbody>
-    <% @plants.each do |plant| %>
-      <tr>
-        <td><%= link_to 'Show', plant %></td>
-        <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
-        <td><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="plantbox col-xs-10 col-xs-offset-1">
+</br>
+<% @plants.each do |plant| %>
+<%= plant.name %>
+</br>
+<%= plant.description %>
+<%= plant.city %>
+<%= plant.state %>
+<br/>
+<!-- <%= link_to 'Show', plant %> -->
+<div class="row text-right">
+  <% if current_user && current_user == plant.user %>
+  <%= link_to 'Edit', edit_plant_path(plant) %>
+  <%= link_to 'Delete', plant, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
+
+<% if plant.user.present? %>
+<%= plant.user.email %>
+<% end %>
+<hr>
+<% end %>
+</div>
+
 
 <br>
-
-<%= link_to 'New Plant', new_plant_path %>
