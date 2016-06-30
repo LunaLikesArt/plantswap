@@ -1,6 +1,15 @@
-<h1>Editing plant</h1>
-
+<h1>Change Details</h1>
+<br />
+<br />
 <%= render 'form' %>
 
 <%= link_to 'Show', @plant %> |
 <%= link_to 'Back', plants_path %>
+
+<div class="plantbox col-xs-10 col-xs-offset-1">
+  <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
+  <%= f.input :picture %>
+  <%= f.submit "Upload", class: 'btn btn-success pull-right' %>
+  <% end %>
+  <br />
+</div>

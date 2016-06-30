@@ -1,4 +1,6 @@
 class Plant < ActiveRecord::Base
   belongs_to :user
-  validate :name, presence: true
+  has_many :photos
+
+  validate :name, presence: true, length: { minimum: 3 }
 end

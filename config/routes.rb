@@ -2,7 +2,9 @@ Plantswap::Application.routes.draw do
   devise_for :users
 
   root 'welcome#index'
-  resources :plants
+  resources :plants do
+    resources :photos
+  end
   resources :users
 
 

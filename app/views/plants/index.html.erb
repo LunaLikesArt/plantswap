@@ -7,30 +7,35 @@
 
 </br>
 
-
 <div class="plantbox col-xs-10 col-xs-offset-1">
-</br>
-<% @plants.each do |plant| %>
-<%= plant.name %>
-</br>
-<%= plant.description %>
-<%= plant.city %>
-<%= plant.state %>
-<br/>
-<!-- <%= link_to 'Show', plant %> -->
-<div class="row text-right">
-  <% if current_user && current_user == plant.user %>
-  <%= link_to 'Edit', edit_plant_path(plant) %>
-  <%= link_to 'Delete', plant, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <br />
+  <% @plants.each do |plant| %>
+  <%= plant.name %>
+  <br />
+  <%= plant.description %>
+  <%= plant.city %>
+  <%= plant.state %>
+
+  <% if plant.photos.first.present? %>
+  <%= image_tag plant.photos.first.picture, class: 'img-responsive' %>
+  <% else %>
+  <%= image_tag 'flower-large.png', class: 'img-responsive' %>
+  <% end %>
+  
+  <br/>
+  <div class="row text-right">
+    <%= link_to 'Show', plant %>
+    <% if current_user && current_user == plant.user %>
+    <%= link_to 'Edit', edit_plant_path(plant) %>
+    <%= link_to 'Delete', plant, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+
+  <% if plant.user.present? %>
+  <%= plant.user.email %>
+  <% end %>
+  <hr>
   <% end %>
 </div>
-
-<% if plant.user.present? %>
-<%= plant.user.email %>
-<% end %>
-<hr>
-<% end %>
-</div>
-
 
 <br>

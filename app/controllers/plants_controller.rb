@@ -11,6 +11,8 @@ class PlantsController < ApplicationController
   # GET /plants/1
   # GET /plants/1.json
   def show
+    @plant = Plant.find(params[:id])
+    @photo = Photo.new
   end
 
   # GET /plants/new
@@ -20,45 +22,28 @@ class PlantsController < ApplicationController
 
   # GET /plants/1/edit
   def edit
+    @photo = Photo.new
     @plant = Plant.find(params[:id])
     if @plant.user != current_user
       return render text: 'Not Allowed', status: :forbidden
     end
+
   end
 
   # POST /plants
   # POST /plants.json
   def create
     @plant = current_user.plants.create(plant_params)
-    if plant.valid?
+    if @plant.valid?
       redirect_to plants_path
     else
       render :new, status: :unprocessable_entity
     end
-
-    # respond_to do |format|
-    #   if @plant.save
-    #     format.html { redirect_to @plant, notice: 'Plant was successfully created.' }
-    #     format.json { render action: 'show', status: :created, location: @plant }
-    #   else
-    #     format.html { render action: 'new' }
-    #     format.json { render json: @plant.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /plants/1
   # PATCH/PUT /plants/1.json
   def update
-    # respond_to do |format|
-    #   if @plant.update(plant_params)
-    #     format.html { redirect_to @plant, notice: 'Plant was successfully updated.' }
-    #     format.json { head :no_content }
-    #   else
-    #     format.html { render action: 'edit' }
-    #     format.json { render json: @plant.errors, status: :unprocessable_entity }
-    #   end
-    # end
     @plant = Plant.find(params[:id])
     if @plant.user != current_user
       return render text: 'Not Allowed', status: :forbidden

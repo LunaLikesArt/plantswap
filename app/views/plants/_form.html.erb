@@ -1,24 +1,6 @@
-<!-- <%= form_for(@plant) do |f| %>
-<% if @plant.errors.any? %>
-<div id="error_explanation">
-<h2><%= pluralize(@plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
-
-<ul>
-<% @plant.errors.full_messages.each do |msg| %>
-<li><%= msg %></li>
-<% end %>
-</ul>
-</div>
-<% end %>
-
-<div class="actions">
-<%= f.submit %>
-</div>
-<% end %> -->
-
 <div class="plantbox col-xs-10 col-xs-offset-1">
   <br />
-  <h2> Enter your plant here </h2>
+  <h2> Plant Details </h2>
   <br />
 
   <%= simple_form_for @plant do |f| %>
@@ -26,7 +8,8 @@
   <%= f.input :description %>
   <p><%= f.input :city %></p>
   <%= f.input :state %>
-  <%= f.submit 'Add', class: 'btn btn-success' %>
+  <%= f.submit 'Save', class: 'btn btn-success pull-right' %>
+  <br />
   <% end %>
   <br />
   <br />
