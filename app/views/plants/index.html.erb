@@ -1,41 +1,37 @@
 </br>
 </br>
 
-<div class="text-center">
-  <h1>All plants</h1>
-</div>
-
-</br>
-
-<div class="plantbox col-xs-10 col-xs-offset-1">
-  <br />
-  <% @plants.each do |plant| %>
-  <%= plant.name %>
-  <br />
-  <%= plant.description %>
-  <%= plant.city %>
-  <%= plant.state %>
-
-  <% if plant.photos.first.present? %>
-  <%= image_tag plant.photos.first.picture, class: 'img-responsive' %>
-  <% else %>
-  <%= image_tag 'flower-large.png', class: 'img-responsive' %>
-  <% end %>
-  
-  <br/>
-  <div class="row text-right">
-    <%= link_to 'Show', plant %>
-    <% if current_user && current_user == plant.user %>
-    <%= link_to 'Edit', edit_plant_path(plant) %>
-    <%= link_to 'Delete', plant, method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="container-fluid">
+  <div class="col-xs-12">
+    <ul class="tiles-wrap animated" id="wookmark1">
+      <% @plants.each do |plant| %>
+      <% if plant.photos.first.present? %>
+      <li>
+        <%= link_to image_tag(plant.photos.first.picture, width: '368', height: 'auto'), plant_path(plant) %>
+        <!-- <p>
+        <%= plant.name %>
+      </p>
+      <%= plant.description %>
+      <%= plant.city %>
+      <%= plant.state %> -->
+      <% else %>
+      <li><%= image_tag 'flower-large.png', width: '350', height: 'auto' %></li>
+    </li>
     <% end %>
-  </div>
-
-  <% if plant.user.present? %>
-  <%= plant.user.email %>
-  <% end %>
-  <hr>
-  <% end %>
+    <% end %>
+    <!-- <li><%= image_tag 'flower-large.png', width: '400', height: 'auto' %></li>
+    <li><%= image_tag 'flower-large.png', width: '200', height: 'auto' %></li>
+    <li><%= image_tag 'flower-large.png', width: '200', height: 'auto' %></li>
+    <li><%= image_tag 'flower-large.png', width: '200', height: 'auto' %></li> -->
+  </ul>
+</div>
 </div>
 
-<br>
+<script>
+$( document ).ready(function() {
+  $('#wookmark1').wookmark({
+    itemWidth: 378,
+    flexibleWidth: true
+  });
+});
+</script>

@@ -13,5 +13,6 @@
 //= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
+//= require wookmark
 //= require turbolinks
 //= require_tree .
