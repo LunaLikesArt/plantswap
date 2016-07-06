@@ -2,6 +2,8 @@
 
 <%= link_to 'Edit', edit_plant_path(@plant) %> |
 <%= link_to 'Back', plants_path %>
+<%= link_to 'Delete', plant_path(@plant), method: :delete %>
+
 
 
 
@@ -10,7 +12,7 @@
   <div class="row">
     <div class="col-sm-4">
       <% @plant.photos.each do |photo| %>
-      <%= image_tag photo.picture, class: 'img-responsive' %>
+      <%= image_tag photo.picture, class: 'img-responsive photo-overlay-background' %>
       <%= photo.caption %>
       <% end %>
     </div>

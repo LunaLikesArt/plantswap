@@ -35,7 +35,7 @@ class PlantsController < ApplicationController
   def create
     @plant = current_user.plants.create(plant_params)
     if @plant.valid?
-      redirect_to plants_path
+      redirect_to edit_plant_path(@plant)
     else
       render :new, status: :unprocessable_entity
     end
