@@ -1,15 +1,64 @@
-<h1>Change Details</h1>
 <br />
 <br />
-<%= render 'form' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="plantbox col-xs-10 col-xs-offset-1 plantbox col-sm-5 col-sm-offset-1">
+      <br />
+      <div class="text-center">
+        <h2> Plant Details </h2>
+      </div>
+      <br />
+      <%= simple_form_for @plant do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <p><%= f.input :city %></p>
+      <%= f.input :state %>
+      <%= f.submit 'Update', class: 'btn btn-success pull-right' %>
+      <br />
+      <% end %>
+      <br />
+    </div>
 
+    <div class="plantbox col-xs-10 col-xs-offset-1 plantbox col-sm-4 col-sm-offset-1">
+      <br />
+      <div class="text-center">
+        <h2> Images </h2>
+      </div>
+      <br />
+      <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
+      <%= f.input :picture %>
+      <%= f.submit "Upload", class: 'btn btn-success pull-right' %>
+      <br />
+      <% end %>
+      <br />
+    </div>
+
+  </div>
+</div>
+
+<br />
+<br />
+
+<!--
 <%= link_to 'Show', @plant %> |
 <%= link_to 'Back', plants_path %>
 
-<div class="plantbox col-xs-10 col-xs-offset-1">
-  <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
-  <%= f.input :picture %>
-  <%= f.submit "Upload", class: 'btn btn-success pull-right' %>
-  <% end %>
-  <br />
+<br />
+<br />
+
+<div class="container-fluid">
+<div class="row">
+<div class="plantbox col-xs-10 col-sm-8 col-lg-6 col-xs-offset-1 col-sm-offset-2 col-lg-offset-3">
+<br />
+<%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
+<%= f.input :picture %>
+<%= f.submit "Upload", class: 'btn btn-success pull-right' %>
+<% end %>
+<br />
 </div>
+</div>
+</div>
+<br />
+<br />
+<br />
+<br /> -->
