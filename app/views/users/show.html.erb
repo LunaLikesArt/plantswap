@@ -1,56 +1,93 @@
 <br />
 <br />
-
 <div class="container-fluid">
   <div class="row">
-    <div class=" col-xs-10 col-xs-offset-1">
-
-      <div class="text-center">
-        <h1>My Plants</h1>
-      </div>
-
-      <% if @user.plants.blank? %>
-      <br />
-      <div class="text-center">
-        <h4> You don't have any plants yet. </h4>
-      </div>
+    <div class="plantbox col-xs-10 col-xs-offset-1">
       <br />
 
-      <% else %>
-
-      <br />
-
-      <div class="container-fluid">
-        <% @user.plants.each do |plant| %>
-        <div class="row">
-          <div class="plantbox col-xs-12">
-            <br />
-            <div class="text-center">
-              <h4> <%= link_to plant.name, plant_path(plant) %> </h4>
-            </div>
-            <br />
-            <div class="row">
-              <div class="col-xs-3">
-                <% plant.photos.each do |photo| %>
-                <%= image_tag photo.picture, class: 'img-responsive' %>
-                <% end %>
-              </div>
-            </div>
-            <%= link_to edit_plant_path(plant), class: 'btn btn-default btn btn-sm pull-right' do %>
-            Edit
-            <% end %>
-            <br />
-            <br />
-          </div>
+      <div class="row">
+        <div class="user_info col-sm-8 text-center">
+          <h3> <u>My Plants</u> </h3>
+          <br />
+          <!-- <h4>User: <%= @user.email.split('@')[0] %></h4> -->
+          <h4> <%= @user.email %></h4>
+          <h5> Member since: <%= @user.created_at.strftime("%B %d, %Y") %> </h5>
         </div>
-        <br>
-        <% end %>
+        <div class="pretty_pot_container col-sm-2">
+          <%= image_tag 'flower-large.png', class: 'pretty_pot' %>
+        </div>
       </div>
 
-      <% end %>
+<div class="col-xs-10 col-xs-offset-1">
+  <hr>
+</div>
 
-    </div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <% if @user.plants.blank? %>
+    <div class="no-plant-user-profile text-center">
+    You don't have a plant yet.
+    <br />
+    <%= link_to 'List your Plant', new_plant_path, class: 'btn btn-default btn-sm' %>
   </div>
+  <br />
+
+  <% else %>
+
+  <br />
+  <% @user.plants.each do |plant| %>
+  <div class="row">
+  <div class="plant-name-user-profile col-xs-12">
+  <%= link_to plant.name, plant_path(plant) %>
+  <%= link_to edit_plant_path(plant), class: 'btn btn-default btn-sm pull-right' do %>
+  Edit Details
+  <% end %>
+</div>
+</div>
+
+<br/>
+
+<% if plant.photos.blank? %>
+<div class="row">
+  <div class="text-center">
+    Your plant has no photos.
+  </div>
+</div>
+<br />
+<br />
+<% if @user.plant.count > 1 && plant != @user.plant.last %>
+<hr>
+<% end %>
+<% else %>
+
+<% plant.photos.each do |photo| %>
+<div class="col-xs-4">
+  <%= image_tag photo.picture, class: 'polaroid-image img-responsive' %>
+  <br />
+</div>
+<% end %>
+
+
+<div class='clear'>
+</div>
+<br />
+<br />
+<% if @user.plants.count > 1 && plant != @user.plants.last %>
+<hr>
+<% end %>
+<% end %>
+
+<br />
+<br />
+
+<% end %>
+<% end %>
+
+</div>
+</div>
+</div>
+</div>
+
 </div>
 
 <br />

@@ -1,3 +1,74 @@
 // Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.polaroid-image {
+  position: relative;
+  top: 15px;
+
+  display: inline;
+  float: left;
+
+  margin: 0 13px 7px;
+  padding: 10px 10px 33px;
+
+  -moz-transition: all .15s linear;
+
+  background: white;
+  -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  box-shadow: 0 4px 6px rgba(0,0,0,.3);
+}
+
+/* Makes images fully responsive */
+
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+/* ------------------- Carousel Styling ------------------- */
+
+.carousel-inner {
+  border-radius: 15px;
+}
+
+// .carousel-caption {
+//   background-color: rgba(0,0,0,.5);
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: 10;
+//   padding: 0 0 10px 25px;
+//   color: #fff;
+//   text-align: left;
+// }
+
+.carousel-indicators {
+  position: absolute;
+  z-index: 15;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  margin: 0;
+  padding: 0 25px 25px 0;
+
+  text-align: right;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+.placeholder {
+  border-radius: 0;
+}

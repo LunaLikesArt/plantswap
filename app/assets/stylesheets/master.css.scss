@@ -1,3 +1,21 @@
+body {
+  color: #545759;
+
+  font-family: 'Muli', sans-serif;
+}
+
+// Remove round edges from all buttons
+.btn {
+  -webkit-border-radius:            0px;
+  -moz-border-radius:               0px;
+  border-radius:                    0px;
+}
+
+abbr[title], abbr[data-original-title] {
+  cursor: default;
+  border-bottom: transparent;
+}
+
 .clear {
     clear: both;
 }
@@ -79,29 +97,29 @@ h1, h2, h3, h4, h5, h6, .navbar {
   background-color: #ec6e67;
 }
 
-.btn-success {
-    color: #fff;
-    border-color: #2BE5BA;
-    background-color: #2BE5BA;
-}
-
-.btn-success:hover {
-  color: #fff;
-  border-color: transparent;
-  background-color: #49E5C1;
-}
-
-.btn-success:focus, .btn-success.focus {
-  color: #fff;
-  border-color: transparent;
-  background-color: #49E5C1;
-}
-
-.btn-success:active:hover, .btn-success:active:focus, .btn-success:active.focus, .btn-success.active:hover, .btn-success.active:focus, .btn-success.active.focus, .open > .btn-success.dropdown-toggle:hover, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle.focus {
-  color: #fff;
-  border-color: transparent;
-  background-color: #2BE5BA;
-}
+// .btn-success {
+//     color: #fff;
+//     border-color: transparent;
+//     background-color: #2BE5BA;
+// }
+//
+// .btn-success:hover {
+//   color: #fff;
+//   border-color: transparent;
+//   background-color: #49E5C1;
+// }
+//
+// .btn-success:focus, .btn-success.focus {
+//   color: #fff;
+//   border-color: transparent;
+//   background-color: #49E5C1;
+// }
+//
+// .btn-success:active:hover, .btn-success:active:focus, .btn-success:active.focus, .btn-success.active:hover, .btn-success.active:focus, .btn-success.active.focus, .open > .btn-success.dropdown-toggle:hover, .open > .btn-success.dropdown-toggle:focus, .open > .btn-success.dropdown-toggle.focus {
+//   color: #fff;
+//   border-color: transparent;
+//   background-color: #2BE5BA;
+// }
 
 .field_with_errors {
   color: #ff3333;
@@ -109,3 +127,16 @@ h1, h2, h3, h4, h5, h6, .navbar {
   border-radius: 3px;
   padding:8px;
 }
+
+.square-image {
+  height:100px;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ }
+
+ .btn-edit-details {
+   margin-right: 18px;
+ }

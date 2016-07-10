@@ -2,6 +2,16 @@
 <br />
 <div class="container-fluid">
   <div class="row">
+    <div class="col-xs-1">
+      <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+      <%= link_to 'Back', url_for(:back) %>
+    </div>
+  </div>
+</div>
+<br />
+
+<div class="container-fluid">
+  <div class="row">
     <div class="plantbox col-xs-10 col-xs-offset-1 plantbox col-sm-5 col-sm-offset-1">
       <br />
       <div class="text-center">
@@ -13,7 +23,7 @@
       <%= f.input :description %>
       <p><%= f.input :city %></p>
       <%= f.input :state %>
-      <%= f.submit 'Update', class: 'btn btn-success pull-right' %>
+      <%= f.submit 'Save', class: 'btn btn-success btn btn-sm pull-right' %>
       <br />
       <% end %>
       <br />
@@ -27,7 +37,7 @@
       <br />
       <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
       <%= f.input :picture %>
-      <%= f.submit "Upload", class: 'btn btn-success pull-right' %>
+      <%= f.submit "Upload", class: 'btn btn-success btn btn-sm pull-right' %>
       <br />
       <% end %>
       <br />
@@ -39,26 +49,11 @@
 <br />
 <br />
 
-<!--
-<%= link_to 'Show', @plant %> |
-<%= link_to 'Back', plants_path %>
-
-<br />
-<br />
-
 <div class="container-fluid">
-<div class="row">
-<div class="plantbox col-xs-10 col-sm-8 col-lg-6 col-xs-offset-1 col-sm-offset-2 col-lg-offset-3">
-<br />
-<%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
-<%= f.input :picture %>
-<%= f.submit "Upload", class: 'btn btn-success pull-right' %>
-<% end %>
-<br />
+  <div class="row text-right">
+    <div class="col-xs-12">
+      <%= link_to 'Show Plant', plant_path(@plant), class: 'btn btn-primary btn btn-sm' %>
+      <%= link_to 'Delete Plant', plant_path(@plant), method: :delete, data: {confirm: "Are you sure you want to delete your plant?"}, class: 'btn btn-danger btn btn-sm' %>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-<br />
-<br />
-<br />
-<br /> -->

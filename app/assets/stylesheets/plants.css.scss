@@ -10,3 +10,17 @@
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
 }
+
+.pretty_pot {
+  max-width: 120px;
+  max-height: 120px;
+}
+
+@media(max-width:768px) {
+  .pretty_pot_container {
+    text-align: center;
+  }
+  .user_info {
+    padding-top: 0;
+  }
+}
