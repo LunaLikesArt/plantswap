@@ -35,7 +35,7 @@ class PlantsController < ApplicationController
   def create
     @plant = current_user.plants.create(plant_params)
     if @plant.valid?
-      redirect_to edit_plant_path(@plant)
+      redirect_to plant_path(@plant)
     else
       render :new, status: :unprocessable_entity
     end
@@ -50,8 +50,8 @@ class PlantsController < ApplicationController
     end
 
     @plant.update_attributes(plant_params)
-    if plant.valid?
-      redirect_to plants_path
+    if @plant.valid?
+      redirect_to plant_path(@plant)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -59,7 +59,7 @@ class PlantsController < ApplicationController
 
   # DELETE /plants/1
   # DELETE /plants/1.json
-  def destroy
+  def delete
     @plant = Plant.find(params[:id])
     if @plant.user != current_user
       return render text: 'Not Allowed', status: :forbidden

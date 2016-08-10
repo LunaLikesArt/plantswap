@@ -52,6 +52,8 @@ gem "pry"
 
 gem "font-awesome-rails"
 
+gem 'blueimp-gallery'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

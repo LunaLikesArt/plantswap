@@ -1,44 +1,38 @@
 
-<!--  Carousel/Slider -->
+<!--  Gallery HTML -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+  <div class="slides"></div>
+  <h3 class="title"></h3>
+  <a class="prev">‹</a>
+  <a class="next">›</a>
+  <a class="close">×</a>
+  <a class="play-pause"></a>
+  <ol class="indicator"></ol>
+</div>
+
+<!--  Gallery Images -->
 <% if @plant.photos.empty? %>
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-  <div class="placeholder carousel-inner">
-    <%= image_tag 'placeholder.png', class: 'img-responsive' %>
-  </div>
-</div>
-
+<%= image_tag 'placeholder.png', class: 'img-responsive' %>
 <% else %>
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <% @plant.photos.each_with_index do |photo, index| %>
-    <% if index == 0 %>
-    <div class="item active">
-      <% else %>
-      <div class="item">
-        <% end %>
-        <!-- cloudinary transformation -->
-        <%= image_tag photo.picture, class: 'img-responsive' %>
-      </div>
-      <% end %>
-    </div>
-
-    <!-- Controls for slides -->
-    <% if @plant.photos.size > 1 %>
-    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-    </a>
-    <% end %>
-    <% end %>
-  </div>
+<div id="links">
+  <% @plant.photos.each do |photo| %>
+  <a href= <%= photo.picture %> ></a>
+  <% end %>
+  <%= image_tag @plant.photos.first.picture, class: 'img-responsive' %>
 </div>
+<% end %>
 
-
-
+<!--  Gallery Javascript -->
+<script>
+document.getElementById('links').onclick = function (event) {
+  event = event || window.event;
+  var target = event.target || event.srcElement,
+  link = target.src ? target.parentNode : target,
+  options = {index: link, event: event},
+  links = this.getElementsByTagName('a');
+  blueimp.Gallery(links, options);
+};
+</script>
 
 <br />
 
@@ -81,19 +75,6 @@
 </div>
 <br />
 
-
-
-<br>
-
-<div class="row">
-  <div class="col-xs-10 col-xs-offset-1">
-    <hr>
-  </div>
-</div>
-
-<br />
-<br />
-
 <!-- Photo Modal -->
 <div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myPhotoLabel" aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog">
@@ -105,19 +86,20 @@
       </div>
 
       <div class="modal-body">
-        <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
-        <input type="hidden" value="show" name="redirect_action" />
-        <%= f.input :picture, label: false %>
-        <!-- <%= f.input :caption %> -->
-      </div>
+      <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
+      <input type="hidden" value="show" name="redirect_action" />
+      <%= f.input :picture, label: false %>
+      <!-- <%= f.input :caption %> -->
+        We recommend uploading an image size of 1200x550px.
+    </div>
 
-      <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
-        <%= f.submit "Upload", class: 'btn btn-sm btn-success' %>
-        <% end %>
-      </div>
+    <div class="modal-footer">
+      <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
+      <%= f.submit "Upload", class: 'btn btn-sm btn-success' %>
+      <% end %>
     </div>
   </div>
+</div>
 </div>
 
 

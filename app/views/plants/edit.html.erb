@@ -2,9 +2,10 @@
 <br />
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-1">
-      <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-      <%= link_to 'Back', url_for(:back) %>
+    <div class="col-xs-12">
+      <%= link_to plant_path(@plant) do %>
+      <i class="fa fa-angle-double-left"></i> Back
+      <% end %>
     </div>
   </div>
 </div>
@@ -12,7 +13,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="plantbox col-xs-10 col-xs-offset-1 plantbox col-sm-5 col-sm-offset-1">
+    <div class="plantbox col-xs-10 col-xs-offset-1">
       <br />
       <div class="text-center">
         <h2> Plant Details </h2>
@@ -28,8 +29,14 @@
       <% end %>
       <br />
     </div>
+  </div>
+</div>
 
-    <div class="plantbox col-xs-10 col-xs-offset-1 plantbox col-sm-4 col-sm-offset-1">
+<br />
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="plantbox col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1">
       <br />
       <div class="text-center">
         <h2> Images </h2>
@@ -43,17 +50,30 @@
       <br />
     </div>
 
-  </div>
-</div>
 
-<br />
-<br />
-
-<div class="container-fluid">
-  <div class="row text-right">
-    <div class="col-xs-12">
-      <%= link_to 'Show Plant', plant_path(@plant), class: 'btn btn-primary btn btn-sm' %>
-      <%= link_to 'Delete Plant', plant_path(@plant), method: :delete, data: {confirm: "Are you sure you want to delete your plant?"}, class: 'btn btn-danger btn btn-sm' %>
+    <div class="plantbox col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-1">
+      <br />
+      <div class="text-center">
+        <h2> Danger Zone </h2>
+      </div>
+      <br />
+      <div class="text-center">
+        <%= link_to 'Delete Plant', plant_path(@plant), method: :delete, data: {confirm: "Are you sure you want to delete your plant?"}, class: 'btn btn-danger btn btn-sm' %>
+      </div>
+      <br />
     </div>
+
   </div>
 </div>
+
+<br />
+<br />
+
+<% @plant.photos.each do |photo| %>
+<div class="plantbox col-xs-2">
+
+<%= image_tag photo.picture, class: 'img-responsive' %>
+<%= link_to 'delete', method: :delete, data: { confirm: 'Are you sure?'} %>
+
+</div>
+<% end %>

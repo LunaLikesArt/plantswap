@@ -29,6 +29,8 @@ GEM
     autoprefixer-rails (6.3.6.2)
       execjs
     bcrypt (3.1.11)
+    blueimp-gallery (2.11.0.1)
+      railties (>= 3.1.0)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
@@ -166,6 +168,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  blueimp-gallery
   bootstrap-sass (~> 3.3.5.1)
   carrierwave
   coffee-rails (~> 4.0.0)

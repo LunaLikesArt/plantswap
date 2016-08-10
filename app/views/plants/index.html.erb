@@ -1,5 +1,15 @@
 </br>
 
+<script>
+$( document ).ready(function() {
+  $('#wookmark1').wookmark({
+    itemWidth: 343,
+    flexibleWidth: true,
+    outerOffset: -50,
+  });
+});
+</script>
+
 <ul class="tiles-wrap animated" id="wookmark1">
   <% @plants.each do |plant| %>
   <% if plant.photos.first.present? %>
@@ -8,34 +18,11 @@
     width: '333',
     height: 'auto'), plant_path(plant),
     class: 'photo-overlay-background' %>
-    <!--
-    <%= plant.name %>
-  <%= plant.description %>
-  <%= plant.city %>
-  <%= plant.state %> -->
+  </li>
   <% else %>
   <li>
     <%= link_to image_tag('flower-large.jpeg', width: '333', height: 'auto'), plant_path(plant) %></li>
   </li>
   <% end %>
   <% end %>
-  <!-- <li><%= image_tag 'flower-large.png', width: '400', height: 'auto' %></li>
-  <li><%= image_tag 'flower-large.png', width: '200', height: 'auto' %></li>
-  <li><%= image_tag 'flower-large.png', width: '200', height: 'auto' %></li>
-  <li><%= image_tag 'flower-large.png', width: '200', height: 'auto' %></li> -->
 </ul>
-
-
-<script>
-$( document ).ready(function() {
-  $('#wookmark1').wookmark({
-    itemWidth: 343,
-    flexibleWidth: true,
-    outerOffset: -50,
-  });
-  // var handler = $('#wookmark1').wookmark();
-  // handler.trigger('refreshWookmark');
-  // $('#wookmark1').trigger('refreshWookmark');
-  // $(window).trigger('resize');
-});
-</script>
