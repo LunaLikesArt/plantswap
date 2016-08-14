@@ -45,48 +45,56 @@
             </div>
           </div>
 
-          <br/>
+          <br />
 
-          <% if plant.photos.blank? %>
           <div class="row">
-            <div class="text-center">
-              Your plant has no photos.
+            <div class="col-xs-12">
+              <%= plant.description %>
             </div>
           </div>
-          <br />
-          <br />
-          <% if @user.plants.count > 1 && plant != @user.plants.last %>
-          <hr>
-          <% end %>
-          <% else %>
 
-          <% plant.photos.each do |photo| %>
-          <div class="col-xs-4">
-            <%= link_to image_tag photo.picture, class: 'polaroid-image img-responsive' %>
-            <br />
-          </div>
-          <% end %>
+          <br/>
 
-
-          <div class='clear'>
-          </div>
-          <br />
-          <br />
-          <% if @user.plants.count > 1 && plant != @user.plants.last %>
-          <hr>
-          <% end %>
-          <% end %>
-
-          <br />
-          <br />
-
-          <% end %>
-          <% end %>
-
+          <!-- <% if plant.photos.blank? %>
+          <div class="row">
+          <div class="text-center">
+          Your plant has no photos.
         </div>
       </div>
+      <br />
+      <br />
+      <% if @user.plants.count > 1 && plant != @user.plants.last %>
+      <hr>
+      <% end %>
+      <% else %>
+
+      <% plant.photos.each do |photo| %>
+      <div class="col-xs-4">
+      <%= link_to image_tag photo.picture, class: 'polaroid-image img-responsive' %>
+      <br />
     </div>
+    <% end %> -->
+
+
+    <div class='clear'>
+    </div>
+    <br />
+    <br />
+    <% if @user.plants.count > 1 && plant != @user.plants.last %>
+    <hr>
+    <% end %>
+    <% end %>
+
+    <br />
+    <br />
+
+    <% end %>
+    <% end %>
+
   </div>
+</div>
+</div>
+</div>
 
 </div>
 

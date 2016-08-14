@@ -31,3 +31,22 @@
 .placeholder {
   border-radius: 0;
 }
+
+.photo-overlay-background img {
+  opacity: 1;
+  background-image: -webkit-linear-gradient(top,rgba(0,0,0,.25),transparent 40%,transparent 60%,rgba(0,0,0,.3));
+  background-image: linear-gradient(180deg,rgba(0,0,0,.25) 0,transparent 40%,transparent 60%,rgba(0,0,0,.3));
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  background-image: -webkit-linear-gradient(top,rgba(0,0,0,.25),transparent 40%,transparent 60%,rgba(0,0,0,.3));
+}
+
+.photo-overlay-background:hover img {
+  opacity:0.75;
+}
+
+.delete-photo-section {
+  object-fit: cover;
+  height: 80px;
+  margin: 0;
+}

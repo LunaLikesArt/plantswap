@@ -10,6 +10,12 @@ class PhotosController < ApplicationController
     redirect_to plant_path(@plant)
   end
 
+  def destroy
+  @plant = Plant.find(params[:plant_id])
+  @plant.photos.find(params[:id]).destroy
+  redirect_to edit_plant_path(@plant)
+end
+
 
   private
 
