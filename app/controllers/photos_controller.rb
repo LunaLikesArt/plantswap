@@ -7,7 +7,7 @@ class PhotosController < ApplicationController
   def create
     @plant = Plant.find(params[:plant_id])
     @plant.photos.create(photo_params)
-    redirect_to plant_path(@plant)
+    redirect_to edit_plant_path(@plant)
   end
 
   def destroy
