@@ -51,7 +51,7 @@ class PlantsController < ApplicationController
 
     @plant.update_attributes(plant_params)
     if @plant.valid?
-      redirect_to plant_path(@plant)
+      redirect_to edit_plant_path(@plant)
     else
       render :edit, status: :unprocessable_entity
     end

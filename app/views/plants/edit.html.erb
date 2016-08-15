@@ -24,7 +24,7 @@
       <%= f.input :description %>
       <p><%= f.input :city %></p>
       <%= f.input :state %>
-      <%= f.submit 'Save', class: 'btn btn-success btn btn-sm pull-right' %>
+      <%= f.button :button, "Save", class: 'btn btn-success btn btn-sm pull-right', data: {disable_with: "Save"} %>
       <br />
       <% end %>
       <br />

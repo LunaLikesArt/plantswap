@@ -59,7 +59,11 @@ document.getElementById('links').onclick = function (event) {
     <br />
     <h3><%= @plant.name %></h3>
     <p />
+    <% if @plant.city.empty? || @plant.state.empty? %>
+    <%= @plant.city %> <%= @plant.state %>
+    <% else %>
     <%= @plant.city %>, <%= @plant.state %>
+    <% end %>
     <p />
     <br />
     <%= sanitize(@plant.description.gsub(/\n/,"<br>"), tags:["br"]) %>
