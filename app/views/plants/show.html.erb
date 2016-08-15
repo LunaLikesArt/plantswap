@@ -85,24 +85,24 @@ document.getElementById('links').onclick = function (event) {
 
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myPhotoLabel">Add Plant Photos</h4>
+        <h4 class="modal-title" id="myPhotoLabel">Add Plant Photo</h4>
       </div>
 
       <div class="modal-body">
-      <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
-      <input type="hidden" value="show" name="redirect_action" />
-      <%= f.input :picture, label: false %>
-      <!-- <%= f.input :caption %> -->
+        <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
+        <input type="hidden" value="show" name="redirect_action" />
+        <%= f.input :picture, label: false %>
+        <!-- <%= f.input :caption %> -->
         We recommend uploading an image size of 1200x550px.
-    </div>
+      </div>
 
-    <div class="modal-footer">
-      <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
-      <%= f.submit "Upload", class: 'btn btn-sm btn-success' %>
-      <% end %>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
+        <%= f.submit "Upload", class: 'btn btn-sm btn-success' %>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
 

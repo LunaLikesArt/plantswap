@@ -22,9 +22,10 @@
       <%= simple_form_for @plant do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
-      <p><%= f.input :city %></p>
+      <%= f.input :city %>
       <%= f.input :state %>
       <%= f.button :button, "Save", class: 'btn btn-success btn btn-sm pull-right', data: {disable_with: "Save"} %>
+      <br />
       <br />
       <% end %>
       <br />
@@ -43,11 +44,17 @@
       <div class="text-center">
         <h2> Gallery </h2>
       </div>
-      <br />
-      <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
+
+      <div class="text-right">
+        <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myPhoto">
+          <i class="fa fa-camera"></i> Add Photo
+        </button>
+      </div>
+
+      <!-- <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
       <%= f.input :picture %>
       <%= f.submit "Upload", class: 'btn btn-success btn btn-sm' %>
-      <% end %>
+      <% end %> -->
 
       <div class="col-xs-10 col-xs-offset-1">
         <hr>
@@ -60,7 +67,7 @@
         <%= image_tag photo.picture, class: 'img-responsive delete-photo-section' %>
         <%= link_to 'delete', plant_photo_path(@plant, photo), method: :delete, data: {confirm: "Are you sure?"}, class: "pull-right" %>
         <div class= "clearfix"></div>
-<br/>
+        <br/>
       </div>
       <% end %>
 
@@ -92,3 +99,30 @@
 
 <br />
 <br />
+
+<!-- Photo Modal -->
+<div class="modal fade" id="myPhoto" tabindex="-1" role="dialog" aria-labelledby="myPhotoLabel" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myPhotoLabel">Add Plant Photo</h4>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for @photo, url: plant_photos_path(@plant) do |f| %>
+        <input type="hidden" value="show" name="redirect_action" />
+        <%= f.input :picture, label: false %>
+        <!-- <%= f.input :caption %> -->
+        We recommend uploading an image size of 1200x550px.
+      </div>
+
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button> -->
+        <%= f.submit "Upload", class: 'btn btn-sm btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
