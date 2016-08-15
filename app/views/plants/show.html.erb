@@ -18,7 +18,7 @@
   <% @plant.photos.each do |photo| %>
   <a href= <%= photo.picture %> ></a>
   <% end %>
-  <%= image_tag @plant.photos.first.picture, class: 'img-responsive' %>
+  <%= image_tag @plant.photos.first.picture, class: 'img-responsive cursor-gallery-click' %>
 </div>
 <% end %>
 

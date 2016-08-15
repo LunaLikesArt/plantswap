@@ -7,7 +7,7 @@
 
       <div class="row">
         <div class="user_info col-sm-8 text-center">
-          <h3> <u>My Plants</u> </h3>
+          <h3> My Plants </h3>
           <br />
           <!-- <h4>User: <%= @user.email.split('@')[0] %></h4> -->
           <h4> <%= @user.email %></h4>
@@ -30,11 +30,9 @@
             <br />
             <%= link_to 'List your Plant', new_plant_path, class: 'btn btn-default btn-sm' %>
           </div>
-          <br />
 
           <% else %>
 
-          <br />
           <% @user.plants.each do |plant| %>
           <div class="row">
             <div class="plant-name-user-profile col-xs-12">
@@ -49,52 +47,28 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <%= plant.description %>
+              <%= plant.description.truncate(250) %>
             </div>
           </div>
 
-          <br/>
+          <% if @user.plants.count > 1 && plant != @user.plants.last %>
+          <hr>
+          <% end %>
 
-          <!-- <% if plant.photos.blank? %>
-          <div class="row">
-          <div class="text-center">
-          Your plant has no photos.
+          <% if @user.plants.count > 1 && plant == @user.plants.last %>
+          <br />
+          <br />
+          <% end %>
+
+          <!-- end of loop -->
+          <% end %>
+          <!-- end of if statement -->
+          <% end %>
+
         </div>
       </div>
-      <br />
-      <br />
-      <% if @user.plants.count > 1 && plant != @user.plants.last %>
-      <hr>
-      <% end %>
-      <% else %>
-
-      <% plant.photos.each do |photo| %>
-      <div class="col-xs-4">
-      <%= link_to image_tag photo.picture, class: 'polaroid-image img-responsive' %>
-      <br />
     </div>
-    <% end %> -->
-
-
-    <div class='clear'>
-    </div>
-    <br />
-    <br />
-    <% if @user.plants.count > 1 && plant != @user.plants.last %>
-    <hr>
-    <% end %>
-    <% end %>
-
-    <br />
-    <br />
-
-    <% end %>
-    <% end %>
-
   </div>
-</div>
-</div>
-</div>
 
 </div>
 
